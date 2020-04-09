@@ -284,7 +284,7 @@ function copyAndUnwrap(obj) {
   return obj.initialValue;
 }
 
-export function useAnimatedStyle(body, input) {
+export function useAnimatedStyle(body, input) { // ToDo: it should execute only the first time
   const sharedInput = useSharedValue(input);
   const mockInput = unwrap(sharedInput, true);
   console.log("mockInput: " + JSON.stringify(mockInput));
