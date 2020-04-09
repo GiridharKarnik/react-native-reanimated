@@ -4,11 +4,6 @@ import SharedValue from './SharedValue';
 import Worklet from './Worklet';
 import WorkletEventHandler from './WorkletEventHandler';
 
-global.Reanimated = {};
-global.Reanimated.withWorklet = (worklet, params, initial) => {
-  return (initial)? initial : 0;
-}
-
 function isShareable(obj) {
   if (obj instanceof SharedValue) {
     return true;
