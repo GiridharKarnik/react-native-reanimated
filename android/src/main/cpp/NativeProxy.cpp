@@ -58,6 +58,7 @@ Java_com_swmansion_reanimated_NativeProxy_install(JNIEnv* env,
       jniRegistry));
 
     std::unique_ptr<jsi::Runtime> animatedRuntime(static_cast<jsi::Runtime*>(facebook::hermes::makeHermesRuntime().release()));
+    RuntimeDecorator::addGlobal(*animatedRuntime);
     RuntimeDecorator::addReanimated(*animatedRuntime);
 
     auto module = std::make_shared<NativeReanimatedModule>(

@@ -70,6 +70,7 @@ std::shared_ptr<IOSScheduler> scheduler;
   std::shared_ptr<ApplierRegistry> applierRegistry(new ApplierRegistry(mapperRegistry));
   std::unique_ptr<jsi::Runtime> animatedRuntime(static_cast<jsi::Runtime*>(facebook::jsc::makeJSCRuntime().release()));
   std::shared_ptr<ErrorHandler> errorHandler((ErrorHandler*)new IOSErrorHandler(schedulerForModule));
+  RuntimeDecorator::addGlobal(*animatedRuntime);
   RuntimeDecorator::addReanimated(*animatedRuntime);
   
   nativeReanimatedModule = std::make_shared<NativeReanimatedModule>(std::move(animatedRuntime),
